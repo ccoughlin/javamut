@@ -23,8 +23,8 @@ be Time Of Day with two levels Day and Night.  The full factorial design in this
 
 With only two conditions and a few levels per condition this table is easy to generate by hand, but the complexity rises
 quickly as you add conditions.  If we add a third condition Vehicle with three levels Car, Truck/SUV, and Commercial there
-are (2*4*3) 24 combinations; if we add a fourth condition Speed Limit with three levels 30, 40, and 50 now there are
-(2*4*3*3) 72 combinations, and so on.
+are (2x4x3) 24 combinations; if we add a fourth condition Speed Limit with three levels 30, 40, and 50 now there are
+(2x4x3x3) 72 combinations, and so on.
 
 Credits
 -------
