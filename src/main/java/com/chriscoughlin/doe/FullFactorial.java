@@ -64,12 +64,32 @@ public class FullFactorial {
     }
 
     /**
-     * Returns the complete list of permutations, arranged by condition
+     * Returns a copy of the complete list of permutations, arranged by condition
      * and the values it takes
      * @return List of each condition and the values it takes
      */
     public List<List<Integer>> getFullFactorial() {
         return new ArrayList<List<Integer>> (full);
+    }
+
+    /**
+     * Returns a copy of the current list of levels
+     * @return list of the levels
+     */
+    public List<Integer> getLevels() {
+        return new ArrayList<Integer>(levels);
+    }
+
+    /**
+     * Return the current number of permutations
+     * @return number of permutations
+     */
+    public int numPermutations() {
+        int combos = 1;
+        for (Integer level : levels) {
+            combos *= level;
+        }
+        return combos;
     }
 
     /**

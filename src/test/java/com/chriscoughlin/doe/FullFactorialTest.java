@@ -27,10 +27,10 @@ public class FullFactorialTest extends TestCase {
         expectedFF.add(condition3);
     }
 
-    @Test
     /**
      * Verify the generate method correctly generates the list of permutations
      */
+    @Test
     public void testGenerate() throws Exception {
         List<List<Integer>> returnedFF = ff.getFullFactorial();
         for (int i=0; i<expectedFF.size(); i++) {
@@ -38,10 +38,10 @@ public class FullFactorialTest extends TestCase {
         }
     }
 
-    @Test
     /**
      * Verify the getPermutation method correctly returns a specific permutation
      */
+    @Test
     public void testGetPermutation() throws Exception {
         int numCombinations = 1;
         for (Integer level : levels) {
@@ -57,10 +57,11 @@ public class FullFactorialTest extends TestCase {
         }
     }
 
-    
-    
+    /**
+     * Verify returning the full factorial as a list of permutations
+     */
     @Test
-    public void testBoop() throws Exception {
+    public void testReformat() throws Exception {
         Integer[][] expected = {{ 0, 0, 0},
                                 { 1, 0, 0},
                                 { 0, 1, 0},
@@ -90,6 +91,18 @@ public class FullFactorialTest extends TestCase {
             List<Integer> expectedPermutation = Arrays.asList(expected[i]);
             assertEquals(expectedPermutation, returned.get(i));
         }
+    }
+
+    /**
+     * Verify returning the number of permutations
+     */
+    @Test
+    public void testGetNumPermutations() throws Exception {
+        int expected = 1;
+        for (int i : levels) {
+            expected *= i;
+        }
+        assertEquals(expected, ff.numPermutations());
     }
 
 }
