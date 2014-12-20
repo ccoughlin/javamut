@@ -17,7 +17,6 @@ public class FullFactorialTest extends TestCase {
     @Before
     public void setUp() throws Exception {
         this.ff = new FullFactorial(levels);
-        ff.generate();
         List<Integer> condition1 = Arrays.asList(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1);
         List<Integer> condition2 = Arrays.asList(0, 0, 1, 1, 2, 2, 3, 3, 0, 0, 1, 1, 2, 2, 3, 3, 0, 0, 1, 1, 2, 2, 3, 3);
         List<Integer> condition3 = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2);
@@ -105,4 +104,48 @@ public class FullFactorialTest extends TestCase {
         assertEquals(expected, ff.numPermutations());
     }
 
+    /**
+     * Verify removing a condition
+     */
+    @Test
+    public void testRemoveCondition() throws Exception {
+        Integer[] conditions = {2, 4};
+        FullFactorial small = new FullFactorial(conditions);
+        List<Integer> expected = new ArrayList<Integer>();
+        expected.add(0);
+        expected.add(1);
+        expected.add(2);
+        expected.add(3);
+        small.removeCondition(0);
+        assertTrue(small.numPermutations() == conditions[1]);
+        assertEquals(expected, small.getFullFactorial().get(0));
+    }
+
+    /**
+     * Verify adding a condition
+     */
+    @Test
+    public void testAddCondition() throws Exception {
+        Integer[] conditions = {4};
+        FullFactorial tiny = new FullFactorial(conditions);
+        tiny.addCondition(0, 2);
+        tiny.addCondition(3);
+        List<List<Integer>> returnedFF = tiny.getFullFactorial();
+        for (int i=0; i<expectedFF.size(); i++) {
+            assertEquals(expectedFF.get(i), returnedFF.get(i));
+        }
+    }
+
+    /**
+     * Verify setting the conditions
+     */
+    @Test
+    public void testSetConditions() throws Exception {
+        FullFactorial dummy = new FullFactorial(new Integer[]{1});
+        dummy.setConditions(levels);
+        List<List<Integer>> returnedFF = dummy.getFullFactorial();
+        for (int i=0; i<expectedFF.size(); i++) {
+            assertEquals(expectedFF.get(i), returnedFF.get(i));
+        }
+    }
 }

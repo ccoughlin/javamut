@@ -14,11 +14,13 @@ public class FullFactorial {
      * @param levels number of different values each condition takes
      */
     public FullFactorial(Integer[] levels) {
-        this.levels = Arrays.asList(levels);
+        this.levels = new ArrayList<Integer>(Arrays.asList(levels));
+        generate();
     }
 
     public FullFactorial(List<Integer> levels) {
         this.levels = new ArrayList<Integer>(levels);
+        generate();
     }
 
     /**
@@ -61,6 +63,51 @@ public class FullFactorial {
             perm.add(full.get(i).get(index));
         }
         return perm;
+    }
+
+    /**
+     * Remove a condition from the list of conditions and regenerate the full
+     * factorial expansion
+     * @param conditionIndex index of the condition to remove
+     */
+    public void removeCondition(int conditionIndex) {
+        levels.remove(conditionIndex);
+        generate();
+    }
+
+    /**
+     * Adds a new condition and regenerates the full factorial expansion
+     * @param conditionIndex index at which to add the condition
+     * @param conditionLevels number of values the new condition takes
+     */
+    public void addCondition(int conditionIndex, int conditionLevels) {
+        levels.add(conditionIndex, conditionLevels);
+        generate();
+    }
+
+    /**
+     * Adds a new condition to the end of the list
+     * @param conditionLevels number of values the new condition takes
+     */
+    public void addCondition(int conditionLevels) {
+        addCondition(levels.size(), conditionLevels);
+    }
+
+    /**
+     * Replaces the list of conditions and regenerates the full factorial expansion
+     * @param conditions new list of conditions
+     */
+    public void setConditions(List<Integer> conditions) {
+        this.levels = new ArrayList<Integer>(conditions);
+        generate();
+    }
+
+    /**
+     * Replaces the list of conditions and regenerates the full factorial expansion
+     * @param conditions array of new condition levels
+     */
+    public void setConditions(Integer[] conditions) {
+        setConditions(Arrays.asList(conditions));
     }
 
     /**
