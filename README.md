@@ -11,7 +11,7 @@ day.  Your first condition might be Season with four levels Spring, Summer, Autu
 be Time Of Day with two levels Day and Night.  The full factorial design in this case would look something like
 
 | Season | Time Of Day |
-------------------------
+|----------------------|
 | Spring | Day         |
 | Summer | Day         |
 | Autumn | Day         |
