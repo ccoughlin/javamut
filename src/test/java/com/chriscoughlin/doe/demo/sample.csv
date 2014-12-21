@@ -1,0 +1,5 @@
+# Comma-separated list of conditions for use in PermDemo
+# Condition Name,<Condition Values>
+Names,Albert, Betty, Charlie , Diana
+Time Of Day,Morning, Afternoon, Evening, Night
+Month,January, February, March, April, May, June, July, August, September, October, November, December
