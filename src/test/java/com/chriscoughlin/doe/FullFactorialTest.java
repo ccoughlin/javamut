@@ -20,7 +20,7 @@ public class FullFactorialTest extends TestCase {
         List<Integer> condition1 = Arrays.asList(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1);
         List<Integer> condition2 = Arrays.asList(0, 0, 1, 1, 2, 2, 3, 3, 0, 0, 1, 1, 2, 2, 3, 3, 0, 0, 1, 1, 2, 2, 3, 3);
         List<Integer> condition3 = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2);
-        expectedFF = new ArrayList<List<Integer>>();
+        expectedFF = new ArrayList<>();
         expectedFF.add(condition1);
         expectedFF.add(condition2);
         expectedFF.add(condition3);
@@ -47,7 +47,7 @@ public class FullFactorialTest extends TestCase {
             numCombinations *= level;
         }
         for (int i = 0; i < numCombinations; i++) {
-            ArrayList<Integer> expectedMut = new ArrayList<Integer>();
+            ArrayList<Integer> expectedMut = new ArrayList<>();
             expectedMut.add(ff.getFullFactorial().get(0).get(i));
             expectedMut.add(ff.getFullFactorial().get(1).get(i));
             expectedMut.add(ff.getFullFactorial().get(2).get(i));
@@ -111,7 +111,7 @@ public class FullFactorialTest extends TestCase {
     public void testRemoveCondition() throws Exception {
         Integer[] conditions = {2, 4};
         FullFactorial small = new FullFactorial(conditions);
-        List<Integer> expected = new ArrayList<Integer>();
+        List<Integer> expected = new ArrayList<>();
         expected.add(0);
         expected.add(1);
         expected.add(2);

@@ -14,12 +14,12 @@ public class FullFactorial {
      * @param levels number of different values each condition takes
      */
     public FullFactorial(Integer[] levels) {
-        this.levels = new ArrayList<Integer>(Arrays.asList(levels));
+        this.levels = new ArrayList<>(Arrays.asList(levels));
         generate();
     }
 
     public FullFactorial(List<Integer> levels) {
-        this.levels = new ArrayList<Integer>(levels);
+        this.levels = new ArrayList<>(levels);
         generate();
     }
 
@@ -32,18 +32,18 @@ public class FullFactorial {
         for (int el : levels) {
             numConditions *= el;
         }
-        full = new ArrayList<List<Integer>>();
+        full = new ArrayList<>();
         int levelRepeat = 1;
         int rangeRepeat = numConditions;
         for (Integer level : levels) {
             rangeRepeat /= level;
-            ArrayList<Integer> currentLevel = new ArrayList<Integer>();
+            ArrayList<Integer> currentLevel = new ArrayList<>();
             for (int j = 0; j < level; j++) {
                 for (int k = 0; k < levelRepeat; k++) {
                     currentLevel.add(j);
                 }
             }
-            ArrayList<Integer> rng = new ArrayList<Integer>();
+            ArrayList<Integer> rng = new ArrayList<>();
             for (int m = 0; m < rangeRepeat; m++) {
                 rng.addAll(currentLevel);
             }
@@ -58,9 +58,9 @@ public class FullFactorial {
      * @return list of the condition values for the given permutation
      */
     public List<Integer> getPermutation(int index) {
-        ArrayList<Integer> perm = new ArrayList<Integer>();
-        for (int i=0; i<full.size(); i++) {
-            perm.add(full.get(i).get(index));
+        ArrayList<Integer> perm = new ArrayList<>();
+        for (List<Integer> aFull : full) {
+            perm.add(aFull.get(index));
         }
         return perm;
     }
@@ -98,7 +98,7 @@ public class FullFactorial {
      * @param conditions new list of conditions
      */
     public void setConditions(List<Integer> conditions) {
-        this.levels = new ArrayList<Integer>(conditions);
+        this.levels = new ArrayList<>(conditions);
         generate();
     }
 
@@ -116,7 +116,7 @@ public class FullFactorial {
      * @return List of each condition and the values it takes
      */
     public List<List<Integer>> getFullFactorial() {
-        return new ArrayList<List<Integer>> (full);
+        return new ArrayList<>(full);
     }
 
     /**
@@ -124,7 +124,7 @@ public class FullFactorial {
      * @return list of the levels
      */
     public List<Integer> getLevels() {
-        return new ArrayList<Integer>(levels);
+        return new ArrayList<>(levels);
     }
 
     /**
@@ -144,7 +144,7 @@ public class FullFactorial {
      * @return list of permutations
      */
     public List<List<Integer>> reformat() {
-        ArrayList<List<Integer>> ref = new ArrayList<List<Integer>>();
+        ArrayList<List<Integer>> ref = new ArrayList<>();
         int numPerms = full.get(0).size();
         for (int j = 0; j < numPerms; j++) {
             ref.add(getPermutation(j));

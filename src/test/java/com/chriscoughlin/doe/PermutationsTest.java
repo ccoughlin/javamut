@@ -15,11 +15,11 @@ public class PermutationsTest {
      */
     @Test
     public void testGenerate() throws Exception {
-        List<String> words = new ArrayList<String>();
+        List<String> words = new ArrayList<>();
         words.add("Alpha");
         words.add("Beta");
         words.add("Gamma");
-        List<Double> numbers = new ArrayList<Double>();
+        List<Double> numbers = new ArrayList<>();
         numbers.add(-1.);
         numbers.add(2.2);
         numbers.add(3.141592654);
@@ -43,10 +43,10 @@ public class PermutationsTest {
      */
     @Test
     public void testGetTable() throws Exception {
-        List<Integer> i = new ArrayList<Integer>();
+        List<Integer> i = new ArrayList<>();
         i.add(-1);
         i.add(0);
-        List<String> j = new ArrayList<String>();
+        List<String> j = new ArrayList<>();
         j.add("a");
         j.add("b");
         Permutations p = new Permutations(i, j);
