@@ -36,4 +36,21 @@ public class PermutationsTest {
             assertEquals(numbers.get(levels.get(1).get(j)), permTable.get(1).get(j));
         }
     }
+
+    /**
+     * Verify the getTable method correctly returns the list of permutations
+     * @throws Exception
+     */
+    @Test
+    public void testGetTable() throws Exception {
+        List<Integer> i = new ArrayList<Integer>();
+        i.add(-1);
+        i.add(0);
+        List<String> j = new ArrayList<String>();
+        j.add("a");
+        j.add("b");
+        Permutations p = new Permutations(i, j);
+        String expected = "[[-1, a], [0, a], [-1, b], [0, b]]";
+        assertEquals(expected, p.getTable().toString());
+    }
 }

@@ -146,10 +146,8 @@ public class FullFactorial {
     public List<List<Integer>> reformat() {
         ArrayList<List<Integer>> ref = new ArrayList<List<Integer>>();
         int numPerms = full.get(0).size();
-        for (int i=0; i<full.size(); i++) {
-            for (int j = 0; j < numPerms; j++) {
-                ref.add(getPermutation(j));
-            }
+        for (int j = 0; j < numPerms; j++) {
+            ref.add(getPermutation(j));
         }
         return ref;
     }
