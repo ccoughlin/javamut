@@ -151,4 +151,21 @@ public class FullFactorial {
         }
         return ref;
     }
+
+    /**
+     * Randomize a design matrix and add "centerpoint" runs at the beginning, middle, and end of the matrix
+     * as per NIST recommendations http://www.itl.nist.gov/div898/handbook/pri/section3/pri3332.htm
+     * @return Randomized full factorial design matrix
+     */
+    public List<List<Integer>> randomized() {
+        List<List<Integer>> table = reformat();
+        Collections.shuffle(table);
+        Integer[] midConditions = new Integer[]{0, 0, 0};
+        List<Integer> centrePoint = Arrays.asList(midConditions);
+        table.add(0, centrePoint);
+        int midIndex = table.size() == 0 ? -1 : table.size() / 2;
+        table.add(midIndex, centrePoint);
+        table.add(table.size(), centrePoint);
+        return table;
+    }
 }

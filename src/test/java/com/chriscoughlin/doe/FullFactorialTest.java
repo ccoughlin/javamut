@@ -93,6 +93,28 @@ public class FullFactorialTest extends TestCase {
     }
 
     /**
+     * Verify returning a randomized design matrix
+     * @throws Exception
+     */
+    @Test 
+    public void testRandomized() throws Exception {
+        List<List<Integer>> expected = ff.reformat();
+        List<List<Integer>> returned = ff.randomized();
+        assertTrue(returned.size() == expected.size() + 3);
+        // Verify the returned design matrix includes center point conditions at beginning, middle, and end
+        Integer[] midVals = new Integer[]{0, 0, 0};
+        List<Integer> centrePoint = Arrays.asList(midVals);
+        assertEquals(returned.get(0), centrePoint);
+        assertEquals(returned.get(returned.size() - 1), centrePoint);
+        int midIndex = expected.size() == 0 ? -1 : expected.size() / 2;
+        assertEquals(returned.get(midIndex), centrePoint);
+        // Verify every expected design is in the randomized matrix
+        for (List<Integer> condition : expected) {
+            assertTrue(returned.contains(condition));
+        }
+    }
+
+    /**
      * Verify returning the number of permutations
      */
     @Test
